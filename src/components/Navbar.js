@@ -1,7 +1,28 @@
 import React from 'react'
+import { AppBar, Button, Grid, Toolbar } from '@mui/material'
+import { NavLink } from 'react-router-dom'
+import { LOGIN_ROUTE } from '../utils/const'
 
 export default function Navbar() {
+  const user=false
   return (
-	 <div>Navbar</div>
+<AppBar color={'secondary'} position="static" >
+  <Toolbar variant={'dense'} >
+   <Grid container justifyContent={'flex-end'}>
+   {!user? 
+    <Button variant={'outlined'}>
+       Логин
+     </Button>
+     :
+     <NavLink to={LOGIN_ROUTE}>
+     <Button variant={'outlined'} >
+         Выйти
+      </Button>
+     </NavLink>
+   }
+   
+   </Grid>
+  </Toolbar>
+</AppBar>
   )
 }
